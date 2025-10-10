@@ -42,6 +42,8 @@ class FuncionarioController extends Controller
             'estabelecimento_idEstabelecimento' => 'required|integer|exists:estabelecimentos,idEstabelecimento'
         ]);
 
+        $validated['senhaFuncionario'] = Hash::make($validated['senhaFuncionario']); 
+
         $funcionario = Funcionario::create($validated);
         return response()->json($funcionario, 201);
     }

@@ -40,6 +40,8 @@ class ClienteController extends Controller
             'bairroCliente' => 'required|string|max:100',
         ]);
 
+        $validated['senhaCliente'] = Hash::make($validated['senhaCliente']);
+
         $cliente = Cliente::create($validated);
         return response()->json($cliente, 201);
     }

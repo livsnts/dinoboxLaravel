@@ -40,7 +40,7 @@ class EstabelecimentoController extends Controller
             'instagramEstabelecimento' => 'nullable|string|max:100',
             'horarioFuncionamento' => 'nullable|string|max:200',
             'gerente_funcionario_idFuncionario' => 'required|integer|exists:funcionarios,idFuncionario'
-        ]); 
+        ]);
 
         $estabelecimento = Estabelecimento::create($validated);
         return response()->json($estabelecimento, 201);
